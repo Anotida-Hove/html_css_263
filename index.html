@@ -1,18 +1,633 @@
 <!DOCTYPE html>
+
+<html lang="en">
 <head>
-    <title>Memes</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deepfake Awareness — Ethical Issues in AI Scams</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body> 
-    <h1>Memes or Nah?!</h1>
-    <h3> Why I think we should have a class about memes at St Olaf College</h3>
-    <p>I think we should we should have class about memes at St oLaf becasue, 
-        memes are part of our daily lives. We open our instagrams, we find them, 
-        we open our tiktoks, we find them, when we speak to our friends we hear about them. 
-        So why should we not learn about them? What make smemes so funny, why do we find ourselves
-        quoting them in situations that feel or seem familiar to those memes. I dont know, but what
-        I do know is that i we had class about memes, we would surley find out the answers to
-        these questions!  </p>
-    <h2> Here are some of my favourite memes...</h2>
-    
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<nav id="sidebar" role="navigation" aria-label="Site navigation">
+
+  <div class="sidebar-header" role="link" tabindex="0"
+       onclick="showPage('home')"
+       onkeydown="if(event.key==='Enter'||event.key===' ')showPage('home')"
+       aria-label="Deepfake Aware — go to home page">
+    <div class="sidebar-logo" aria-hidden="true">D</div>
+    <div class="sidebar-title">Deepfake<br>Aware</div>
+  </div>
+
+  <p class="nav-section-label" aria-hidden="true">Learn</p>
+  <a class="nav-link" href="#" data-page="scams"
+     onclick="event.preventDefault(); showPage('scams')"
+     aria-label="AI Scams section"> AI Scams</a>
+  <a class="nav-link sub" href="#" data-page="scams"
+     onclick="event.preventDefault(); showPage('scams'); setTimeout(()=>document.getElementById('what-is-deepfake').scrollIntoView({behavior:'smooth'}),50)">What is it?</a>
+  <a class="nav-link sub" href="#" data-page="scams"
+     onclick="event.preventDefault(); showPage('scams'); setTimeout(()=>document.getElementById('how-scammers').scrollIntoView({behavior:'smooth'}),50)">Types of Scams</a>
+  <a class="nav-link sub" href="#" data-page="scams"
+     onclick="event.preventDefault(); showPage('scams'); setTimeout(()=>document.getElementById('how-to-spot').scrollIntoView({behavior:'smooth'}),50)">How to Detect</a>
+
+  <p class="nav-section-label" aria-hidden="true">Ethics</p>
+  <a class="nav-link" href="#" data-page="ethics"
+     onclick="event.preventDefault(); showPage('ethics')"> Ethical Issues</a>
+  <a class="nav-link sub" href="#" data-page="ethics"
+     onclick="event.preventDefault(); showPage('ethics'); setTimeout(()=>document.querySelector('.ethics-grid').scrollIntoView({behavior:'smooth'}),50)">The Issues</a>
+  <a class="nav-link sub" href="#" data-page="ethics"
+     onclick="event.preventDefault(); showPage('ethics'); setTimeout(()=>document.getElementById('stakeholders-heading').scrollIntoView({behavior:'smooth'}),50)">Stakeholders</a>
+  <a class="nav-link" href="#" data-page="actions"
+     onclick="event.preventDefault(); showPage('actions')"> Options for Action</a>
+  <a class="nav-link" href="#" data-page="environment"
+     onclick="event.preventDefault(); showPage('environment')"> AI &amp; the Environment</a>
+  <a class="nav-link" href="#" data-page="discussion"
+     onclick="event.preventDefault(); showPage('discussion')"> Discussion Questions</a>
+
+  <p class="nav-section-label" aria-hidden="true">Help</p>
+  <a class="nav-link" href="#" data-page="resources"
+     onclick="event.preventDefault(); showPage('resources')"> Resources</a>
+  <a class="nav-link sub" href="#" data-page="resources"
+     onclick="event.preventDefault(); showPage('resources'); setTimeout(()=>document.getElementById('got-scammed').scrollIntoView({behavior:'smooth'}),50)">I got scammed</a>
+  <a class="nav-link sub" href="#" data-page="resources"
+     onclick="event.preventDefault(); showPage('resources'); setTimeout(()=>document.getElementById('loved-one').scrollIntoView({behavior:'smooth'}),50)">My loved one was scammed</a>
+  <a class="nav-link sub" href="#" data-page="resources"
+     onclick="event.preventDefault(); showPage('resources'); setTimeout(()=>document.getElementById('institutions').scrollIntoView({behavior:'smooth'}),50)">Institutions &amp; Banks</a>
+
+  <p class="nav-section-label" aria-hidden="true">Interactive</p>
+  <a class="nav-link quiz-link" href="#" data-page="quiz"
+     onclick="event.preventDefault(); showPage('quiz')"> Check Your Preparedness</a>
+
+</nav>
+
+<button id="hamburger"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="sidebar"
+        onclick="toggleSidebar()">
+  <span aria-hidden="true"></span>
+  <span aria-hidden="true"></span>
+  <span aria-hidden="true"></span>
+</button>
+
+<main id="main" role="main">
+  <div id="main-content" tabindex="-1"></div>
+
+  <!-- HOME -->
+  <div id="page-home" class="page active" aria-label="Home page">
+    <div class="hero">
+      <p class="hero-eyebrow" aria-hidden="true">Ethical Issues in Software Design</p>
+      <h1>Did You Almost Get Scammed by <em>Artificial Intelligence?</em></h1>
+      <p class="hero-sub">You are not alone, and it is not your fault. AI deepfake scams are engineered to fool even careful, intelligent people by exploiting trust and emotion. This site will help you understand what happened, how to protect yourself, and what society can do about it.</p>
+      <div class="hero-reassurance" role="note">
+        "These scams fool smart, careful people every day. Almost falling for one doesn't mean you did anything wrong."
+      </div>
+    </div>
+
+    <div class="home-cards" role="list">
+      <div class="home-card" role="listitem" tabindex="0"
+           onclick="showPage('scams')"
+           onkeydown="if(event.key==='Enter'||event.key===' ')showPage('scams')"
+           aria-label="What are AI scams? Go to AI Scams section">
+        <div class="card-icon" aria-hidden="true"></div>
+        <div class="card-title">What Are AI Scams?</div>
+        <p class="card-desc">Learn how deepfakes work, how scammers use them, and what tactics they use to bypass your judgment.</p>
+        <div class="card-arrow" aria-hidden="true">Learn more →</div>
+      </div>
+      <div class="home-card" role="listitem" tabindex="0"
+           onclick="showPage('ethics')"
+           onkeydown="if(event.key==='Enter'||event.key===' ')showPage('ethics')"
+           aria-label="The Ethical Issues. Go to Ethical Issues section">
+        <div class="card-icon" aria-hidden="true"></div>
+        <div class="card-title">The Ethical Issues</div>
+        <p class="card-desc">Who is responsible? How do these scams harm communities, identity, and trust? Explore the bigger picture.</p>
+        <div class="card-arrow" aria-hidden="true">Explore →</div>
+      </div>
+      <div class="home-card" role="listitem" tabindex="0"
+           onclick="showPage('resources')"
+           onkeydown="if(event.key==='Enter'||event.key===' ')showPage('resources')"
+           aria-label="What to Do. Go to Resources section">
+        <div class="card-icon" aria-hidden="true"></div>
+        <div class="card-title">What to Do</div>
+        <p class="card-desc">Were you or a loved one targeted? Get practical steps, emotional support guidance, and trusted resources.</p>
+        <div class="card-arrow" aria-hidden="true">Get help →</div>
+      </div>
+    </div>
+
+    <div class="quiz-cta" tabindex="0" role="button"
+         onclick="showPage('quiz')"
+         onkeydown="if(event.key==='Enter'||event.key===' ')showPage('quiz')"
+         aria-label="Check Your Preparedness — start the 5-question quiz">
+      <div class="quiz-cta-text">
+        <h2>Check Your Preparedness</h2>
+        <p>Take our 5-question scenario quiz to see how well you can spot an AI scam — and learn without judgment.</p>
+      </div>
+      <span class="quiz-cta-btn" aria-hidden="true">Start the Quiz →</span>
+    </div>
+  </div><!-- /page-home -->
+
+
+  <!-- AI SCAMS -->
+  <div id="page-scams" class="page" aria-hidden="true" aria-label="AI Scams page">
+    <header class="page-header">
+      <p class="breadcrumb" aria-hidden="true">Learn</p>
+      <h2>Understanding AI Scams &amp; Deepfakes</h2>
+      <p>How AI-generated fakes work, and why they're so difficult to resist.</p>
+    </header>
+    <div class="page-body">
+      <section aria-label="Key statistics on deepfake fraud">
+        <div class="stat-strip">
+          <div class="stat-box">
+            <div class="stat-num">3,000%</div>
+            <div class="stat-label">Increase in deepfake fraud attempts in 2023</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">$25M</div>
+            <div class="stat-label">Lost in a single 2024 Hong Kong deepfake call</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">90%+</div>
+            <div class="stat-label">Of deepfake content is non-consensual intimate imagery</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="info-section" aria-labelledby="what-is-deepfake">
+        <h3 id="what-is-deepfake">What Is a Deepfake?</h3>
+        <p>A deepfake is synthetic media — a video, image, or audio recording — in which a person's face, voice, or body has been replaced or manipulated using artificial intelligence. The technology was originally developed for film production and research, but free tools now make it accessible to anyone.</p>
+        <p>Deepfakes are built on a class of AI called <strong>generative adversarial networks (GANs)</strong>, where two neural networks compete — one generates fake content, the other tries to detect it — until the fakes become indistinguishable from reality.</p>
+        <div class="warning-box" role="note" aria-label="Real-world example">
+          <strong>Real example:</strong> In 2024, a finance worker in Hong Kong transferred $25 million to fraudsters after attending a video call where every other participant — including his company's CFO — was a deepfake. He was the only real person on the call.
+        </div>
+      </section>
+
+      <section class="info-section" aria-labelledby="how-scammers">
+        <h3 id="how-scammers">How Scammers Use Deepfakes</h3>
+        <h4>They find you online.</h4>
+        <p>Scammers harvest photos and videos of your family members from Facebook, WhatsApp, and other social media. Even a few seconds of video or audio is enough to clone a voice.</p>
+        <h4>They create a convincing fake.</h4>
+        <p>Using cheap or free AI tools, they generate a voice clone or video of someone you trust — a grandchild, a parent, a coworker.</p>
+        <h4>They manufacture an emergency.</h4>
+        <p>A fake arrest. A fake accident. A kidnapping. The situation is designed to make you panic — because panic stops you from thinking clearly.</p>
+        <h4>They demand immediate action.</h4>
+        <p>"Don't tell anyone." "Send money now." "There's no time." These phrases are specifically designed to prevent verification.</p>
+      </section>
+
+      <section class="info-section" aria-labelledby="how-to-spot">
+        <h3 id="how-to-spot">How to Spot an AI Scam</h3>
+        <div class="warning-box" role="note" aria-label="Key warning sign">
+          <strong>Red flag:</strong> Any call or video creating sudden urgency, asking for money, and telling you not to call anyone else is almost certainly a scam — regardless of who appears to be calling.
+        </div>
+        <h4>Use a family code word.</h4>
+        <p>Establish a secret phrase only your real family members know. If someone claims to be in danger, ask for the code word.</p>
+        <h4>Hang up and call back.</h4>
+        <p>Call on a number you already know. Don't use a number the caller gives you.</p>
+        <h4>Look for visual glitches.</h4>
+        <p>Look for unnatural blinking, lip sync issues, or strange lighting in video calls. Deepfakes often have subtle visual glitches.</p>
+        <h4>Notice emotional pressure tactics.</h4>
+        <p>Real emergencies don't usually require you to keep them secret.</p>
+        <h4>Slow down.</h4>
+        <p>Scammers rely on your panic. Even 60 seconds of pause can break their strategy.</p>
+      </section>
+
+      <section class="info-section" aria-labelledby="detection-difficult">
+        <h3 id="detection-difficult">Why Detection Is Difficult</h3>
+        <p>Deepfake detection tools exist, but they are in a perpetual arms race with the generation tools. Every time a detector learns to spot one type of artifact, generators are updated to eliminate it. No detection tool is reliable enough on its own.</p>
+        <p>This is why awareness and human skepticism remain the most important defenses.</p>
+      </section>
+
+      <button class="btn-link" onclick="showPage('quiz')">Test Your Preparedness →</button>
+    </div>
+  </div><!-- /page-scams -->
+
+
+  <!-- ETHICAL ISSUES -->
+  <div id="page-ethics" class="page" aria-hidden="true" aria-label="Ethical Issues page">
+    <header class="page-header">
+      <p class="breadcrumb" aria-hidden="true">Ethics</p>
+      <h2>The Ethical Issues of Deepfake Scams</h2>
+      <p>These harms extend far beyond the individual victim — they affect identity, community, and trust itself.</p>
+    </header>
+    <div class="page-body">
+      <ul class="ethics-grid" aria-label="Ethical issues" style="list-style:none;padding:0;">
+        <li class="ethics-card">
+          <h3> Identity Theft</h3>
+          <p>Deepfakes allow anyone's face and likeness to be used without consent. A person's identity is tied to their dignity — having it weaponized to deceive the people they love is a violation that goes beyond financial loss.</p>
+        </li>
+        <li class="ethics-card">
+          <h3> Mental &amp; Emotional Harm</h3>
+          <p>Victims frequently experience shame, anxiety, and lasting distrust of their own judgment. These scams deliberately trigger panic to bypass rational thinking — victims often blame themselves for something engineered to fool them.</p>
+        </li>
+        <li class="ethics-card">
+          <h3> Erosion of Trust</h3>
+          <p>When any video or image can be faked, communities grow suspicious. Families grow guarded. Shared digital spaces become environments of doubt, benefiting no one except those who profit from division.</p>
+        </li>
+        <li class="ethics-card">
+          <h3> Exploitation of Kindness</h3>
+          <p>These scams target the best parts of people — love for family, willingness to help, instinct to trust a familiar face. Every successful scam makes victims more guarded and less willing to respond to real emergencies.</p>
+        </li>
+        <li class="ethics-card">
+          <h3> Poverty as a Driver</h3>
+          <p>Many deepfake scam operations are run from compounds where workers — sometimes trafficking victims themselves — are forced to carry out fraud under threat of violence. Solutions that ignore poverty will have limited impact.</p>
+        </li>
+        <li class="ethics-card">
+          <h3> Diffuse Responsibility</h3>
+          <p>Responsibility spreads across scammers, software developers, app stores, social media platforms, and governments — each pointing to another. When accountability is this diffuse, no one is held responsible and victims have no recourse.</p>
+        </li>
+      </ul>
+
+      <section class="info-section" aria-labelledby="stakeholders-heading">
+        <h3 id="stakeholders-heading">Stakeholders</h3>
+        <table class="stakeholder-table">
+          <caption class="sr-only">Stakeholders and their relationship to deepfake scams</caption>
+          <thead>
+            <tr>
+              <th scope="col">Stakeholder</th>
+              <th scope="col">Impact &amp; Considerations</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>AI Companies &amp; Developers</strong></td>
+              <td>Face reputational damage and regulatory pressure when tools are misused. "We didn't intend it to be misused" is not the same as bearing no responsibility. Policymakers should require detection tools built into platforms.</td>
+            </tr>
+            <tr>
+              <td><strong>Scammers</strong></td>
+              <td>The direct cause of harm — but many operate in regions beyond international law enforcement reach. Some are themselves trafficking victims under coercion. Addressing poverty alongside criminal punishment is essential.</td>
+            </tr>
+            <tr>
+              <td><strong>Banks &amp; Financial Institutions</strong></td>
+              <td>Sit at a critical intersection: they can detect fraud before it completes. Some already offer real-time scam warnings. Financial incentive and ethical responsibility are increasingly aligned here.</td>
+            </tr>
+            <tr>
+              <td><strong>Victims</strong></td>
+              <td>Suffer financial loss, psychological trauma, and deep distrust. Elderly people and those with active social media are targeted most. Many feel too ashamed to report — real numbers are far higher than statistics show.</td>
+            </tr>
+            <tr>
+              <td><strong>Environment &amp; Local Communities</strong></td>
+              <td>Data centers powering AI use enormous fresh water and fossil fuel energy. As AI scams grow, so does this environmental burden — falling on communities near data centers who had no say in their placement.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <button class="btn-link" onclick="showPage('actions')">See Options for Action →</button>
+    </div>
+  </div><!-- /page-ethics -->
+
+
+  <!-- OPTIONS FOR ACTION -->
+  <div id="page-actions" class="page" aria-hidden="true" aria-label="Options for Action page">
+    <header class="page-header">
+      <p class="breadcrumb" aria-hidden="true">Ethics</p>
+      <h2>Options for Action</h2>
+      <p>Three different approaches — each with real trade-offs across ethical lenses.</p>
+    </header>
+    <div class="page-body">
+      <div class="options-tabs" role="tablist" aria-label="Action options">
+        <button class="tab-btn" role="tab"
+                id="tab-opt1" aria-selected="true" aria-controls="opt1" tabindex="0"
+                onclick="showTab('opt1', this)">Option 1: Regulate AI Companies</button>
+        <button class="tab-btn" role="tab"
+                id="tab-opt2" aria-selected="false" aria-controls="opt2" tabindex="-1"
+                onclick="showTab('opt2', this)">Option 2: Government &amp; Law</button>
+        <button class="tab-btn" role="tab"
+                id="tab-opt3" aria-selected="false" aria-controls="opt3" tabindex="-1"
+                onclick="showTab('opt3', this)">Option 3: Public Education</button>
+      </div>
+
+      <div id="opt1" class="tab-panel" role="tabpanel" aria-labelledby="tab-opt1" aria-hidden="false">
+        <div class="option-card">
+          <h3>Require AI Companies to Build Safety Into Their Tools</h3>
+          <p class="option-desc">AI companies are made legally responsible for building detection tools, usage monitoring, and consent verification directly into their platforms before public release.</p>
+          <div class="pros-cons">
+            <div class="pros">
+              <h4>Pros</h4>
+              <ul>
+                <li>Addresses the problem at its origin</li>
+                <li>Reduces deepfake tool availability to scammers</li>
+                <li>Creates industry-wide standards</li>
+              </ul>
+            </div>
+            <div class="cons">
+              <h4>Cons</h4>
+              <ul>
+                <li>Small developers may not survive compliance costs</li>
+                <li>Scammers will seek unregulated overseas tools</li>
+                <li>Broad requirements may slow legitimate innovation</li>
+              </ul>
+            </div>
+          </div>
+          <p class="lens-eval"><strong>Ethical evaluation:</strong> Strong on the Utilitarian and Rights lenses. Weaker on Care Ethics since it doesn't directly support those already harmed.</p>
+          <div class="lens-tags" aria-label="Ethical lens ratings">
+            <span class="lens-tag">Utilitarian ★★★</span>
+            <span class="lens-tag">Rights ★★★</span>
+            <span class="lens-tag">Justice ★★</span>
+            <span class="lens-tag">Care Ethics ★</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="opt2" class="tab-panel" role="tabpanel" aria-labelledby="tab-opt2" aria-hidden="true">
+        <div class="option-card">
+          <h3>Government Regulation, Legal Penalties &amp; International Cooperation</h3>
+          <p class="option-desc">Governments pass and enforce laws criminalizing deepfake fraud, mandate watermarking of AI-generated content, and establish international agreements to pursue scam operations across borders.</p>
+          <div class="pros-cons">
+            <div class="pros">
+              <h4>Pros</h4>
+              <ul>
+                <li>Creates enforceable consequences</li>
+                <li>Gives victims legal recognition and recovery pathways</li>
+                <li>Watermarking makes deepfake content traceable</li>
+              </ul>
+            </div>
+            <div class="cons">
+              <h4>Cons</h4>
+              <ul>
+                <li>Legislation moves slowly vs. fast-evolving technology</li>
+                <li>International enforcement is extremely difficult</li>
+                <li>Overly broad laws risk suppressing legitimate AI uses</li>
+              </ul>
+            </div>
+          </div>
+          <p class="lens-eval"><strong>Ethical evaluation:</strong> Strongest on the Justice lens — the harms fall disproportionately on elderly people and low-income individuals, who deserve equal legal protection.</p>
+          <div class="lens-tags" aria-label="Ethical lens ratings">
+            <span class="lens-tag">Justice ★★★</span>
+            <span class="lens-tag">Rights ★★★</span>
+            <span class="lens-tag">Utilitarian ★★</span>
+            <span class="lens-tag">Communitarian ★★</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="opt3" class="tab-panel" role="tabpanel" aria-labelledby="tab-opt3" aria-hidden="true">
+        <div class="option-card">
+          <h3>Public Education, Bank-Led Warnings &amp; Community Awareness</h3>
+          <p class="option-desc">Governments, banks, and nonprofits invest in widespread public education campaigns. Banks take an active role by flagging suspicious transfers and offering scam literacy resources to clients.</p>
+          <div class="pros-cons">
+            <div class="pros">
+              <h4>Pros</h4>
+              <ul>
+                <li>Empowers vulnerable people immediately, without legislation delays</li>
+                <li>Banks have direct relationships with those most at risk</li>
+                <li>Reduces shame by framing scams as deliberate exploitation</li>
+              </ul>
+            </div>
+            <div class="cons">
+              <h4>Cons</h4>
+              <ul>
+                <li>Places burden on victims rather than perpetrators</li>
+                <li>Doesn't hold AI companies accountable</li>
+                <li>Uneven reach — most isolated people may never see campaigns</li>
+              </ul>
+            </div>
+          </div>
+          <p class="lens-eval"><strong>Ethical evaluation:</strong> Strongest on Care Ethics and the Communitarian lens. Community-level knowledge sharing strengthens the social fabric in ways laws and platform policies cannot alone.</p>
+          <div class="lens-tags" aria-label="Ethical lens ratings">
+            <span class="lens-tag">Care Ethics ★★★</span>
+            <span class="lens-tag">Communitarian ★★★</span>
+            <span class="lens-tag">Utilitarian ★★</span>
+            <span class="lens-tag">Justice ★</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="verdict-box" role="note" aria-label="Overall ethical verdict">
+        <strong>The verdict across ethical lenses:</strong> No single option produces the most good alone. A combination of all three — upstream regulation, legal enforcement, and community education — produces the greatest good for the greatest number of stakeholders.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ENVIRONMENT -->
+  <div id="page-environment" class="page" aria-hidden="true" aria-label="AI and the Environment page">
+    <header class="page-header">
+      <p class="breadcrumb" aria-hidden="true">Ethics</p>
+      <h2>AI &amp; the Environment</h2>
+      <p>The environmental costs of deepfake technology — an overlooked consequence of AI crime.</p>
+    </header>
+    <div class="page-body">
+      <section aria-label="Environmental impact statistics">
+        <div class="env-data">
+          <div class="env-stat">
+            <div class="env-stat-icon" aria-hidden="true"></div>
+            <div class="env-stat-num">Billions</div>
+            <div class="env-stat-label">of liters of fresh water used by data centers annually for cooling</div>
+          </div>
+          <div class="env-stat">
+            <div class="env-stat-icon" aria-hidden="true"></div>
+            <div class="env-stat-num">Massive</div>
+            <div class="env-stat-label">electricity demand, much still from fossil fuels</div>
+          </div>
+          <div class="env-stat">
+            <div class="env-stat-icon" aria-hidden="true"></div>
+            <div class="env-stat-num">Growing</div>
+            <div class="env-stat-label">CO₂ emissions as AI scam scale increases</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="info-section" aria-labelledby="env-why">
+        <h3 id="env-why">Why This Matters</h3>
+        <p>Generating deepfake content requires massive computing power. The data centers running it consume enormous amounts of electricity and water. As deepfake scams grow in scale, so does this environmental cost.</p>
+        <p>This burden falls disproportionately on communities near data center infrastructure — often lower-income or rural areas — who had no say in the matter and receive few of the benefits.</p>
+        <div class="warning-box" role="note" aria-label="Environmental justice note">
+          <strong>Environmental justice:</strong> The communities most affected by AI infrastructure are rarely the ones benefiting from the technology. This concern is almost entirely absent from mainstream conversations about AI scams — yet it deserves explicit recognition.
+        </div>
+      </section>
+
+      <section class="info-section" aria-labelledby="env-action">
+        <h3 id="env-action">What Can Be Done</h3>
+        <p>Requirements for renewable energy use and water recycling should be part of any serious policy response to AI regulation. Environmental advocates have an important role to play in pushing for sustainable AI infrastructure — connecting the dots between AI crime and ecological harm.</p>
+      </section>
+    </div>
+  </div>
+
+
+  <!-- DISCUSSION QUESTIONS -->
+  <div id="page-discussion" class="page" aria-hidden="true" aria-label="Discussion Questions page">
+    <header class="page-header">
+      <p class="breadcrumb" aria-hidden="true">Ethics</p>
+      <h2>Discussion Questions</h2>
+      <p>Think more deeply about the ethical dimensions of deepfake scams. Activate any question to expand it.</p>
+    </header>
+    <div class="page-body">
+      <div class="discussion-q" id="dq1">
+        <button class="discussion-btn" aria-expanded="false" aria-controls="dq1-answer"
+                onclick="toggleDiscussion(this.closest('.discussion-q'))">
+          1. Who should be held most responsible?
+          <span class="discussion-indicator" aria-hidden="true">▼</span>
+        </button>
+        <div class="discussion-answer" id="dq1-answer" aria-hidden="true">
+          When a victim loses their savings to a deepfake scam, responsibility could be shared across the AI company that built the tool, the platform that distributed it, the bank that processed the transaction, and the government that failed to regulate it. In your opinion, who bears the greatest moral responsibility — and does spreading blame across so many parties make it easier for everyone to avoid being held accountable?
+        </div>
+      </div>
+
+      <div class="discussion-q" id="dq2">
+        <button class="discussion-btn" aria-expanded="false" aria-controls="dq2-answer"
+                onclick="toggleDiscussion(this.closest('.discussion-q'))">
+          2. Do AI companies owe victims anything?
+          <span class="discussion-indicator" aria-hidden="true">▼</span>
+        </button>
+        <div class="discussion-answer" id="dq2-answer" aria-hidden="true">
+          AI companies often argue their tools are general-purpose and not designed for harm. But deepfake scams were a predictable and well-documented misuse long before many of these tools were released. Should companies be legally and financially responsible for harms caused by foreseeable misuse of their products — even if they never intended that harm to happen?
+        </div>
+      </div>
+
+      <div class="discussion-q" id="dq3">
+        <button class="discussion-btn" aria-expanded="false" aria-controls="dq3-answer"
+                onclick="toggleDiscussion(this.closest('.discussion-q'))">
+          3. Is it fair to ask victims to protect themselves?
+          <span class="discussion-indicator" aria-hidden="true">▼</span>
+        </button>
+        <div class="discussion-answer" id="dq3-answer" aria-hidden="true">
+          Public education campaigns put some of the burden of protection on potential victims — people like elderly grandparents who never asked to be targeted by sophisticated AI technology. Is it fair to expect ordinary people to defend themselves against tools built by billion-dollar companies? Or does personal responsibility still play a role — and if so, how much?
+        </div>
+      </div>
+
+      <div class="discussion-q" id="dq4">
+        <button class="discussion-btn" aria-expanded="false" aria-controls="dq4-answer"
+                onclick="toggleDiscussion(this.closest('.discussion-q'))">
+          4. What do we do about scammers who are also victims?
+          <span class="discussion-indicator" aria-hidden="true">▼</span>
+        </button>
+        <div class="discussion-answer" id="dq4-answer" aria-hidden="true">
+          Some people running deepfake scam operations are themselves victims of human trafficking, forced to work in scam compounds under threat of violence. Knowing this, how should the justice system treat them — as criminals, as victims, or both? And does addressing poverty and coercion need to be part of any meaningful solution to deepfake fraud?
+        </div>
+      </div>
+
+      <div class="discussion-q" id="dq5">
+        <button class="discussion-btn" aria-expanded="false" aria-controls="dq5-answer"
+                onclick="toggleDiscussion(this.closest('.discussion-q'))">
+          5. What happens to trust when nothing can be verified?
+          <span class="discussion-indicator" aria-hidden="true">▼</span>
+        </button>
+        <div class="discussion-answer" id="dq5-answer" aria-hidden="true">
+          If any video or image can be convincingly faked, how do families, communities, and institutions maintain trust in what they see? What replaces visual evidence as a way of knowing something is real — and what are the broader consequences for society when the most vulnerable people stop trusting their own eyes?
+        </div>
+      </div>
+    </div>
+  </div><!-- /page-discussion -->
+
+
+  <!-- RESOURCES -->
+  <div id="page-resources" class="page" aria-hidden="true" aria-label="Resources page">
+    <header class="page-header">
+      <p class="breadcrumb" aria-hidden="true">Help</p>
+      <h2>Resources &amp; What to Do</h2>
+      <p>Practical steps if you or a loved one has been targeted — and how institutions can help.</p>
+    </header>
+    <div class="page-body">
+      <section aria-labelledby="got-scammed">
+        <div class="action-steps">
+          <h3 id="got-scammed"> I Got Scammed — Immediate Steps</h3>
+          <ol>
+            <li>Do not feel ashamed. These scams are deliberately engineered by professionals to exploit emotion. Being targeted does not mean you were foolish.</li>
+            <li>Contact your bank immediately and explain what happened. Ask about fraud reversal options for any transfers made.</li>
+            <li>Report the scam to your national fraud reporting agency (in the US: FTC at reportfraud.ftc.gov; FBI at ic3.gov).</li>
+            <li>Document everything — screenshots, phone numbers, times, and amounts — before memories fade.</li>
+            <li>Tell someone you trust. Shame keeps scams underreported and lets scammers keep operating.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="info-section" aria-labelledby="loved-one">
+        <h3 id="loved-one"> My Loved One Was Scammed — How to Support Them</h3>
+        <p>The most important thing you can do is <strong>not make them feel foolish</strong>. Deepfake scams are specifically engineered to bypass rational thinking. Anyone can be targeted.</p>
+        <div class="warning-box" role="note" aria-label="Suggested words of support">
+          <strong>What to say:</strong> "This happened because they designed it to fool people. It's not about how smart you are." Validation before problem-solving makes recovery much more effective.
+        </div>
+        <p>Help them contact their bank and file a report together. Accompany them if they want to speak to authorities. Check in regularly — financial scams can have lasting psychological effects including anxiety and withdrawal.</p>
+      </section>
+
+      <section class="info-section" aria-labelledby="institutions">
+        <h3 id="institutions"> Institutions &amp; Banks</h3>
+        <p>Banks are at a critical intersection — they have both the ability to detect fraud before it completes and a responsibility to protect clients' assets. Key actions institutions can take:</p>
+        <ol class="step-list" aria-label="Actions for institutions">
+          <li>Implement real-time warnings when clients receive calls from known scam numbers</li>
+          <li>Flag suspicious wire transfer requests with a brief delay and human check-in call</li>
+          <li>Provide scam literacy resources to all clients, especially elderly account holders</li>
+          <li>Train staff to respond without judgment when clients report scam losses</li>
+        </ol>
+      </section>
+
+      <section aria-label="External reporting resources">
+        <div class="resources-grid">
+          <div class="resource-card">
+            <h3>FTC — Report Fraud</h3>
+            <p>US Federal Trade Commission. File a report at reportfraud.ftc.gov. Reports help track patterns and lead to investigations.</p>
+          </div>
+          <div class="resource-card">
+            <h3>FBI Internet Crime Center</h3>
+            <p>For AI-assisted fraud and cybercrime, file a complaint at ic3.gov. Especially useful for large financial losses.</p>
+          </div>
+          <div class="resource-card">
+            <h3>AARP Fraud Watch Network</h3>
+            <p>Focused on protecting older adults from fraud. Helpline: 1-877-908-3360. Free resources and counseling.</p>
+          </div>
+        </div>
+      </section>
+
+      <button class="btn-link" onclick="showPage('quiz')">Test Your Preparedness →</button>
+    </div>
+  </div><!-- /page-resources -->
+
+
+  <!-- QUIZ -->
+  <div id="page-quiz" class="page" aria-hidden="true" aria-label="Quiz page">
+    <header class="page-header">
+      <p class="breadcrumb" aria-hidden="true">Interactive</p>
+      <h2>AI Scam Preparedness Quiz</h2>
+      <p>5 real-world scenarios. No judgment — each question teaches, whether you get it right or not.</p>
+    </header>
+    <div class="page-body">
+      <div id="quiz-container">
+        <div id="quiz-intro" class="quiz-intro">
+          <h3>Check Your Preparedness</h3>
+          <p>You'll be presented with different questions. For each one, decide the right answer. This quiz is designed to teach, not to test. There are no wrong learners here.</p>
+          <button class="start-quiz-btn" onclick="startQuiz()">Start the Quiz</button>
+        </div>
+
+        <div id="quiz-active" style="display:none;" aria-label="Quiz in progress">
+          <p class="quiz-progress-text" id="progress-text" aria-live="polite" aria-atomic="true">Question 1 of 5</p>
+          <div class="quiz-progress-bar" id="progress-bar"
+               role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20"
+               aria-label="Quiz progress">
+            <div class="quiz-progress-fill" id="progress-fill" style="width:20%;"></div>
+          </div>
+          <div id="question-card" class="quiz-question-card"></div>
+          <div class="quiz-nav">
+            <button class="next-btn" id="next-btn" onclick="nextQuestion()">Next Question →</button>
+          </div>
+        </div>
+
+        <div id="quiz-results" class="quiz-results" aria-live="assertive" aria-atomic="true">
+          <div style="font-size:3rem;" aria-hidden="true"></div>
+          <div class="results-score" id="score-display"></div>
+          <h3 id="results-title" style="font-family:var(--font-display);color:var(--deep-teal);margin-bottom:0.75rem;"></h3>
+          <p class="results-message" id="results-message"></p>
+          <button class="retry-btn" onclick="resetQuiz()">Try Again</button>
+        </div>
+      </div>
+    </div>
+  </div><!-- /page-quiz -->
+
+</main>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0);
+    white-space: nowrap; border: 0;
+  }
+</style>
+
+<script src="script.js"></script>
 </body>
+</html>
